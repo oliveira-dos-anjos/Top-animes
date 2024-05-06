@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Animes</title>
+</head>
+<body>
+
+    <h2>Lista de Animes</h2>
+
+    <table border="1">
+        <tr>
+            <th>Rank</th>
+            <th>Imagem</th>
+            <th>Título</th>
+            <th>Pontuação</th>
+        </tr>
+        {% for anime in lista_animes %}
+            <tr>
+                <td>{{ anime['rank'] }}</td>
+                <td><img src="/static/imagens_animes/{{ anime['imagem_path'] }}" alt="{{ anime['title'] }}" width="100"></td>
+                <td>{{ anime['title'] }}</td>
+                <td>{{ anime['score'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+
+</body>
+</html>
