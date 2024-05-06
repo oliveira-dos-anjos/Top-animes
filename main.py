@@ -1,4 +1,5 @@
 import os
+import re
 import requests
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, request
@@ -17,6 +18,10 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Define o caminho para a pasta static/imagens_animes
 IMAGENS_ANIMES_PATH = os.path.join(script_dir, 'static', 'imagens_animes')
+
+# Função para limpar caracteres inválidos para nomes de arquivo
+def limpar_nome_arquivo(nome):
+    return re.sub(r'[\\/*?:"<>|]', '_', nome)
 
 
 def obter_lista_animes():
@@ -39,8 +44,11 @@ def obter_lista_animes():
                     title = title_h3.get_text().strip() if title_h3 else "TITULO"
                     Score = cells[2].get_text().strip()
 
+                    # Usando a função para limpar o título do anime
+                    title_cleaned = limpar_nome_arquivo(title)
+
                     # Obtém o caminho da imagem para o anime atual
-                    imagem_anime_path = os.path.join(IMAGENS_ANIMES_PATH, f'{title}.jpg')
+                    imagem_anime_path = os.path.join(IMAGENS_ANIMES_PATH, f'{title_cleaned}.jpg')
             
 
                     # Verifica se a imagem já foi baixada
