@@ -108,14 +108,3 @@ def home():
 if __name__ == "__main__":
     app.run(debug=True)
 
-
-
-'''
-
-
-  # Normalizar o caminho (remover o prefixo static)
-    image_path = image_path.replace('static/', '')
-    
-    
-    
-    '''
