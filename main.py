@@ -17,7 +17,7 @@ response = requests.get(url)
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Define o caminho para a pasta static/imagens_animes
-IMAGENS_ANIMES_PATH = os.path.join(script_dir, 'static', 'imagens_animes')
+IMAGENS_ANIMES_PATH =  'static/imagens_animes'
 
 # Função para limpar caracteres inválidos para nomes de arquivo
 def limpar_nome_arquivo(nome):
@@ -92,11 +92,7 @@ def home():
 
      # Modifica o caminho da imagem antes de renderizar o template
     for anime in lista_animes:
-        anime['imagem_path'] = anime['imagem_path'].replace('/', '')
-        anime['imagem_path'] = anime['imagem_path'].replace('GitHubTop-animesstaticimagens_animes', '')
-        anime['imagem_path'] = anime['imagem_path'].replace('optrenderprojectsrcstaticimagens_animes', '')
-        anime['imagem_path'] = anime['imagem_path'].replace('D:', '')
-
+        anime['imagem_path'] = anime['imagem_path'].replace('static/imagens_animes/', '')
 
         
         print(f'\033[32m{anime["imagem_path"]}')
