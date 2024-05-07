@@ -98,7 +98,7 @@ def home():
 
 
         
-        print(f'\033[32m{anime['imagem_path']}')
+        print(f'\033[32m{anime["imagem_path"]}')
 
     # Renderiza o template HTML e passa a lista de animes como contexto
     return render_template('index.html', lista_animes=lista_animes)
