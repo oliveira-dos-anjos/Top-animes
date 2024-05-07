@@ -94,6 +94,7 @@ def home():
     for anime in lista_animes:
         anime['imagem_path'] = anime['imagem_path'].replace('/', '')
         anime['imagem_path'] = anime['imagem_path'].replace('GitHubTop-animesstaticimagens_animes', '')
+        anime['imagem_path'] = anime['imagem_path'].replace('optrenderprojectsrcstaticimagens_animes', '')
         anime['imagem_path'] = anime['imagem_path'].replace('D:', '')
 
 
